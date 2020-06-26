@@ -1,6 +1,9 @@
 ***Settings***
 Resource    ../resources/Resources.robot
 Test Setup    Abre o navegador
+Suite Setup   Conectar API
+
+
 #Test TearDown   Fechar o navegador
 
 ***Test Case***
@@ -22,7 +25,10 @@ Cenário 01: Acessar Página Clash Royale API
     Então é carregada a tela new key
     Quando Preencho os campos "KEY NAME","DESCIPTION" e "ALLOWED IP ADDRESSES"
     Então uma nova key é criada com sucesso
-  
+    Quando faço a requisição das informações do Clan
+
+
+
 
 #
 *** Keywords ***

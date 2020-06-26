@@ -1,18 +1,24 @@
 *** Settings ***
+Documentation   Documentação API  https://developer.clashroyale.com/#/documentation
+Library  RequestsLibrary
+Library  Collections
 Library  SeleniumLibrary
 Library  OperatingSystem
-Library  String
+
+
 
 *** Variables ***
 # Varíaveis Globais
 
-${EMAIL}   luizjunior.tec@gmail.com
-${SENHA}   cap1993@
+${EMAIL}   seuusario@usuario
+${SENHA}   ******
 ${BROWSER}  chrome
 ${URL}   https://developer.clashroyale.com/
 ${K_NAME}  Juniorsp30
 ${DESCRIPTION_K}   AutomationThursday
 ${IP_ADSRESS}   201.182.165.134
+${URL_API}    https://api.clashroyale.com/v1/clans/%20%239V2Y%20/
+
 
 *** Keywords ***
 ### Setup e TearDown
@@ -80,4 +86,13 @@ Então uma nova key é criada com sucesso
   Wait Until Element is Visible   xpath=//span[contains(text(),"Key created successfully.")]
 
 # Evidencia último passo realizado com sucesso
-  Capture Page Screenshot
+  Capture Page Screenshot  testeExecutadoComSucesso.png
+
+### API
+Conectar API
+  Create Session   clashAPI   ${URL_API}
+
+  #Step Action
+Quando faço a requisição das informações do Clan
+  ${RESPOSTA}   Get Request   clashAPI
+  Log           ${RESPOSTA.text}
