@@ -21,6 +21,8 @@ Cenário 01: Acessar Página Clash Royale API
     E clico em "Create New key"
     Então é carregada a tela new key
     Quando Preencho os campos "KEY NAME","DESCIPTION" e "ALLOWED IP ADDRESSES"
-    #Então uma nova key é criada
+    Então uma nova key é criada com sucesso
+  
+
 #
 *** Keywords ***
